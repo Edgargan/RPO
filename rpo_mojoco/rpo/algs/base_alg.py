@@ -100,7 +100,7 @@ class BaseAlg:
                     'actor_weights': self.actor.get_weights(),
                     'critic_weights': self.critic.get_weights(),
                 }
-                self.logger.save_current(current, self.params["log_path"]+'/Model', 'steps_%s_seed_%s' % (str(sim_total), str(self.seed)))
+                # self.logger.save_current(current, self.params["log_path"]+'/Model', 'steps_%s_seed_%s' % (str(sim_total), str(self.seed)))
 
         final = {
             'actor_weights':    self.actor.get_weights(),
