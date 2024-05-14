@@ -11,7 +11,7 @@ This repository is the official implementation used to produce all experiments c
 Simulations can be run by calling `run` on the command line. For example, we can reproduce the results shown for RPO on HalfCheetah-v3 environment of MuJoCo as follows:
 
 ```
-cd ./rpo_mujoco/rpo
+cd ./rpo_mujoco
 python run_RPO.py
 ```
 
