@@ -25,14 +25,6 @@ def get_logger(config, tag='default', log_level=0):
             logger.addHandler(fh)
             return Logger(logger, config.base_path_tf_log + '/%s-ratio_clip-%s-seed-%s-%s' %
                           (tag, str(config.ppo_ratio_clip), str(config.seed), get_time_str()), log_level)
-        elif tag == 'PPO_multi_ratio':
-            fh = logging.FileHandler(config.base_path_log_txt + '/%s_seed_%s_%s.txt' %
-                                     (config.tag_1, config.seed, get_time_str()))
-            fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s'))
-            fh.setLevel(logging.INFO)
-            logger.addHandler(fh)
-            return Logger(logger, config.base_path_tf_log + '/%s_seed_%s_%s' %
-                          (config.tag_1, config.seed, get_time_str()), log_level)
         else:
             fh = logging.FileHandler(config.base_path_log_txt + '/%s_seed_%s_%s.txt' %
                                      (config.tag, config.seed, get_time_str()))
@@ -50,39 +42,6 @@ def get_logger(config, tag='default', log_level=0):
             #               (config.env, tag, tag, str(config.seed), get_time_str()), log_level)
     else:
         return Logger(logger, config.base_path + 'tf_log/%s/%s/%s-%s' % (config.env, tag, tag, get_time_str()), log_level)
-
-
-# def get_logger(config, tag='default', log_level=0):
-#     logger = logging.getLogger()
-#     logger.setLevel(logging.INFO)
-#     if tag is not None:
-#         if tag == 'PPO':
-#             fh = logging.FileHandler(config.base_path_log_txt + '/%s-ratio_clip-%s-seed-%s-%s.txt' %
-#                                      (tag, str(config.ppo_ratio_clip), str(config.seed), get_time_str()))
-#             fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s'))
-#             fh.setLevel(logging.INFO)
-#             logger.addHandler(fh)
-#             return Logger(logger, config.base_path_tf_log + '/%s-ratio_clip-%s-seed-%s-%s' %
-#                           (tag, str(config.ppo_ratio_clip), str(config.seed), get_time_str()), log_level)
-#         elif config.tag_0 is not None:
-#             fh = logging.FileHandler(config.base_path_log_txt + '/%s_%s_%s-%s.txt' %
-#                                  (config.tag_0, config.env, config.tag_1, get_time_str()))
-#             fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s'))
-#             fh.setLevel(logging.INFO)
-#             logger.addHandler(fh)
-#             return Logger(logger, config.base_path_tf_log + '/%s_%s_%s-%s' %
-#                           (config.tag_0, config.env, config.tag_1, get_time_str()), log_level)
-#         else:
-#             fh = logging.FileHandler(config.base_path + 'log_txt/%s/%s/%s-seed-%s-%s.txt' %
-#                                      (config.env, tag, tag, str(config.seed), get_time_str()))
-#             fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s'))
-#             fh.setLevel(logging.INFO)
-#             logger.addHandler(fh)
-#             return Logger(logger, config.base_path + 'tf_log/%s/%s/%s-seed-%s-%s' %
-#                           (config.env, tag, tag, str(config.seed), get_time_str()), log_level)
-#     else:
-#         return Logger(logger, config.base_path + 'tf_log/%s/%s/%s-%s' % (config.env, tag, tag, get_time_str()), log_level)
-
 
 
 class Logger(object):
