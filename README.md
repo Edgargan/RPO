@@ -22,8 +22,16 @@ cd ./rpo_atari
 python run_RPO.py
 ```
 
-
-
+# Citation
+Please cite our paper if you find the RPO helpful in your work:
+```
+@inproceedings{rpo2024icml,
+    title={Reflective Policy Optimization},
+    author={Yaozhong Gan and Renye Yan and Zhe Wu and Junliang Xing},
+    booktitle={International Conference on Machine Learning},
+    year={2024}
+}
+```
 # Acknowledgements
 
 - [GePPO](https://github.com/jqueeney/geppo)
